@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lei Zhou | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="logo">LZ.</div>
+    <nav class="nav-links">
+      <a href="#hero" data-en="About" data-zh="关于我">About</a>
+      <a href="#vfx" data-en="VFX & Media" data-zh="视效与影像">VFX & Media</a>
+      <a href="#skills" data-en="Skills" data-zh="专业技能">Skills</a>
+      <a href="#contact" data-en="Contact" data-zh="联系合作">Contact</a>
+    </nav>
+    <button id="lang-toggle" class="btn-glass">
+      <span class="lang-en active">EN</span> / <span class="lang-zh">中文</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <div class="bento-grid">
+      
+      <!-- HERO CARD -->
+      <article class="bento-card span-8 hero-card" id="hero" data-glow>
+        <div class="card-content hero-layout">
+          <div class="hero-text">
+            <p class="mono-label accent-engineering" data-en="> Hello, World" data-zh="> 你好，世界"></p>
+            <h1 class="title">Lei Zhou <span class="zh-name">周磊</span></h1>
+            <h2 class="subtitle" data-en="Industrial Designer & Project Manager" data-zh="工业设计师 & 项目经理">Industrial Designer & Project Manager</h2>
+            <p class="description" data-en="Over 9 years of experience managing international design and construction projects for global brands like NIKE, SHELL, BP, and SINOPEC." data-zh="拥有超过9年国际品牌（如NIKE、壳牌、BP、中石化）设计与施工项目管理经验。"></p>
+            <div class="tags">
+              <span class="tag">PMP® Certified</span>
+              <span class="tag" data-en="Level 1 Constructor" data-zh="一级建造师">Level 1 Constructor</span>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="assets/profile.jpg" alt="Lei Zhou" fetchpriority="high">
+          </div>
+        </div>
+      </article>
+
+      <!-- CREATOR CARD -->
+      <article class="bento-card span-4 creator-card" id="creator" data-glow>
+        <div class="card-content creator-layout">
+          <div class="icon-wrapper accent-creative">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="mono-label accent-creative" data-en="// EDUCATION & MEDIA" data-zh="// 教育与自媒体"></span>
+          <h3 data-en="Bilingual Expert" data-zh="双语沟通专家">Bilingual Expert</h3>
+          <p data-en="PTE Academic Speaking 80 (IELTS 8.0 eq). Seamless cross-cultural communication for technical specs." data-zh="PTE口语80分（等同雅思8.0）。在技术规范领域提供无缝跨文化交流。"></p>
+          <p class="highlight" data-en="English Learning Content Creator" data-zh="英语启蒙内容创作者">English Learning Content Creator</p>
+        </div>
+      </article>
+
+      <!-- VFX / CREATIVE CARD -->
+      <article class="bento-card span-6 vfx-card" id="vfx" data-glow>
+        <div class="card-content vfx-layout">
+          <div class="vfx-bg-overlay" style="background-image: url('assets/project1.jpg');"></div>
+          <div class="vfx-text">
+            <span class="mono-label accent-creative" data-en="// CREATIVE MEDIA" data-zh="// 创意视效"></span>
+            <h3 data-en="Lifestyle Visual Effects" data-zh="创意生活特效">Lifestyle Visual Effects</h3>
+            <p data-en="Directing and editing engaging short videos featuring visual effects, motion tracking, and lifestyle CGI. All special effects feature my wife as the main character." data-zh="拍摄并制作充满趣味的日常生活特技特效、运动跟踪及视效合成，视频均由妻子担任女主角。"></p>
+            <div class="tags">
+              <span class="tag">Premiere</span>
+              <span class="tag">After Effects</span>
+              <span class="tag" data-en="CGI & VFX" data-zh="三维与特效">CGI & VFX</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SKILLS CARD -->
+      <article class="bento-card span-6 skills-card" id="skills" data-glow>
+        <div class="card-content skills-layout">
+          <span class="mono-label accent-engineering" data-en="// TOOLS & METHODOLOGIES" data-zh="// 工具与方法论"></span>
+          <h3 data-en="Tech Stack & Tools" data-zh="技术栈与工具">Tech Stack & Tools</h3>
+          <p class="section-desc" data-en="Expertise in industrial design modeling, drafting, rendering, and structured project management methodologies." data-zh="熟练掌握工业设计建模、工程制图、效果图渲染及结构化项目管理方法论。"></p>
+          <div class="skill-tags">
+            <span class="tag">Autodesk Inventor</span>
+            <span class="tag">Adobe Illustrator</span>
+            <span class="tag">Adobe Premiere</span>
+            <span class="tag">SketchUp</span>
+            <span class="tag">AutoCAD</span>
+            <span class="tag" data-en="Project Mgt" data-zh="项目管理">Project Mgt</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- EXPERIENCE / CLIENTS CARD -->
+      <article class="bento-card span-6 exp-card" id="clients" data-glow>
+        <div class="card-content exp-layout">
+          <span class="mono-label accent-engineering" data-en="// CLIENT PORTFOLIO" data-zh="// 客户合作关系"></span>
+          <h3 data-en="Global Brands" data-zh="服务全球品牌">Global Brands</h3>
+          <p class="section-desc" data-en="Delivered premium engineering and signage projects for multinational oil, retail, and design firms." data-zh="为跨国石油、零售及设计巨头交付高品质的工程与标识系统项目。"></p>
+          <ul class="client-list">
+            <li><span>NIKE</span></li>
+            <li><span>SHELL</span></li>
+            <li><span>BP</span></li>
+            <li><span>SINOPEC</span></li>
+            <li><span>CALTEX</span></li>
+          </ul>
+          <p class="mono-text" data-en="Long-term partnership with Minoris (Germany)" data-zh="与德国 Minoris 公司建立长期合作伙伴关系">Partnered with Minoris (Germany)</p>
+        </div>
+      </article>
+
+      <!-- SOCIAL CARD -->
+      <article class="bento-card span-6 social-card" id="social" data-glow>
+        <div class="card-content social-layout">
+          <span class="mono-label accent-creative" data-en="// NETWORK & PORTFOLIOS" data-zh="// 社交与作品集"></span>
+          <h3 data-en="Connect" data-zh="联系我">Connect</h3>
+          <div class="social-grid">
+            <a href="https://www.linkedin.com/in/sirius-zhou-487578279/" target="_blank" class="social-btn linkedin-btn">
+              <img src="assets/linkedin.png" alt="LinkedIn" class="social-icon">
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://space.bilibili.com/6799395" target="_blank" class="social-btn bilibili-btn">
+              <img src="assets/bilibili.png" alt="Bilibili" class="social-icon">
+              <span>Bilibili</span>
+            </a>
+            <a href="https://www.youtube.com/@auxiindustrialsolution8870" target="_blank" class="social-btn youtube-btn">
+              <img src="assets/youtube.png" alt="YouTube" class="social-icon">
+              <span>YouTube</span>
+            </a>
+            <a href="https://www.douyin.com/user/TinyTalksEnglish" target="_blank" class="social-btn douyin-btn">
+              <img src="assets/douyin.png" alt="Douyin" class="social-icon">
+              <span>Douyin</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CONTACT / FOOTER CARD -->
+      <article class="bento-card span-12 contact-card" id="contact" data-glow>
+        <div class="card-content contact-layout">
+          <div class="contact-text">
+            <span class="mono-label accent-engineering" data-en="// NEXT PROJECT" data-zh="// 下一个项目"></span>
+            <h2 data-en="Let's build something." data-zh="开启新的合作。">Let's build something.</h2>
+            <p class="mono-text">Guangzhou, China · Available for global remote & freelance roles</p>
+          </div>
+          <a href="mailto:sirius.lei@qq.com" class="btn-primary" data-en="Email Me" data-zh="发邮件给我">Email Me</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

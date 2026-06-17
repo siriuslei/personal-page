@@ -1,0 +1,714 @@
+/* style.css - Premium personal portfolio styling */
+
+:root {
+  /* Fonts */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'JetBrains Mono', monospace;
+
+  /* Colors */
+  --color-bg: #09090b;
+  --color-card-bg: rgba(18, 18, 21, 0.7);
+  --color-card-border: rgba(255, 255, 255, 0.07);
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #52525b;
+
+  /* Accent Colors */
+  --color-eng-accent: #0ea5e9; /* Teal/Cyan */
+  --color-eng-accent-rgb: 14, 165, 233;
+  --color-create-accent: #a855f7; /* Violet/Purple */
+  --color-create-accent-rgb: 168, 85, 247;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 80px; /* offset for top nav */
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(14, 165, 233, 0.25);
+  color: #fff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Navigation Header */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8%;
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.logo {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--color-eng-accent), var(--color-create-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-eng-accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Glassmorphic Button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 0.25rem;
+  font-family: var(--font-secondary);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+}
+
+.btn-glass span {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glass span.active {
+  opacity: 1;
+  color: var(--color-eng-accent);
+}
+
+/* Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+/* Bento Cards base */
+.bento-card {
+  position: relative;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
+  z-index: 1;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Mouse hover glow overlay */
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(255, 255, 255, 0.05),
+    transparent 40%
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.card-content {
+  position: relative;
+  padding: 2.5rem;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid Spanning */
+.span-4 { grid-column: span 4; }
+.span-6 { grid-column: span 6; }
+.span-8 { grid-column: span 8; }
+.span-12 { grid-column: span 12; }
+
+/* Global Card Labels / Monospace Elements */
+.mono-label {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.mono-text {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bento-card:hover .tag {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-primary);
+}
+
+/* Card Glow Accent Classes */
+.accent-engineering {
+  color: var(--color-eng-accent);
+}
+
+.accent-creative {
+  color: var(--color-create-accent);
+}
+
+/* 1. Hero Card Specifics */
+.hero-layout {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  height: 100%;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text .title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text .zh-name {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-left: 0.75rem;
+}
+
+.hero-text .subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-eng-accent);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-text .description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 90%;
+}
+
+.hero-image {
+  flex: 0 0 190px;
+  height: 190px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(14, 165, 233, 0.15);
+  box-shadow: 0 0 40px rgba(14, 165, 233, 0.1);
+  transition: all 0.4s ease;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-card:hover .hero-image {
+  border-color: var(--color-eng-accent);
+  box-shadow: 0 0 50px rgba(14, 165, 233, 0.25);
+}
+
+.hero-card:hover .hero-image img {
+  transform: scale(1.05);
+}
+
+/* 2. Creator Card Specifics */
+.creator-layout {
+  justify-content: space-between;
+  height: 100%;
+}
+
+.creator-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.creator-layout p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.creator-layout .highlight {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border-left: 2px solid var(--color-create-accent);
+  background: rgba(168, 85, 247, 0.04);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.icon-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* 3. VFX / Creative Card [NEW] */
+.vfx-layout {
+  position: relative;
+  min-height: 280px;
+  justify-content: center;
+  padding: 0;
+}
+
+.vfx-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vfx-bg-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(9, 9, 11, 0.95) 45%, rgba(9, 9, 11, 0.6) 80%);
+  z-index: 1;
+}
+
+.vfx-card:hover .vfx-bg-overlay {
+  transform: scale(1.04);
+}
+
+.vfx-text {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
+  max-width: 85%;
+}
+
+.vfx-text h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.vfx-text p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+/* 4. Skills Card Specifics */
+.skills-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.skills-layout .section-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-tags .tag:hover {
+  background: rgba(14, 165, 233, 0.08);
+  border-color: var(--color-eng-accent);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+/* 5. Experience / Clients Card */
+.exp-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.exp-layout .section-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+.client-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+}
+
+.client-list li {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: all 0.3s ease;
+}
+
+.exp-card:hover .client-list li {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.client-list li:hover {
+  background: rgba(14, 165, 233, 0.06) !important;
+  border-color: rgba(14, 165, 233, 0.3) !important;
+  color: var(--color-eng-accent) !important;
+  transform: translateY(-2px);
+}
+
+/* 6. Social Card Specifics */
+.social-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.social-btn:hover .social-icon {
+  filter: none;
+}
+
+.linkedin-btn:hover {
+  background: rgba(10, 102, 194, 0.1);
+  border-color: rgba(10, 102, 194, 0.4);
+}
+
+.bilibili-btn:hover {
+  background: rgba(251, 114, 153, 0.1);
+  border-color: rgba(251, 114, 153, 0.4);
+}
+
+.youtube-btn:hover {
+  background: rgba(255, 0, 0, 0.08);
+  border-color: rgba(255, 0, 0, 0.4);
+}
+
+.douyin-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 7. Contact Card Specifics */
+.contact-layout {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5rem;
+  gap: 2rem;
+}
+
+.contact-text h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.contact-text .mono-text {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--color-eng-accent);
+  color: #fff;
+  border: none;
+  padding: 1rem 2.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #0284c7;
+  box-shadow: 0 6px 25px rgba(14, 165, 233, 0.4);
+}
+
+/* Scroll reveal helper class */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   Responsive Breakpoints & Layout Adapting
+   ========================================== */
+
+@media (max-width: 1024px) {
+  .top-nav {
+    padding: 0 5%;
+  }
+  
+  .hero-text .title {
+    font-size: 2.4rem;
+  }
+  
+  .hero-image {
+    flex: 0 0 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 900px) {
+  .span-4, .span-8, .span-6 {
+    grid-column: span 12;
+  }
+  
+  .hero-layout {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .hero-image {
+    flex: 0 0 120px;
+    height: 120px;
+  }
+  
+  .contact-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .top-nav {
+    height: 70px;
+  }
+  
+  .nav-links {
+    display: none; /* simple hidden layout for mobile nav */
+  }
+  
+  .container {
+    padding: 1.5rem 1rem 4rem;
+  }
+  
+  .card-content {
+    padding: 1.75rem;
+  }
+  
+  .vfx-text {
+    padding: 1.75rem;
+    max-width: 100%;
+  }
+  
+  .vfx-bg-overlay::after {
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.95) 50%, rgba(9, 9, 11, 0.75) 100%) !important;
+  }
+
+  .hero-text .title {
+    font-size: 2rem;
+  }
+  
+  .hero-text .zh-name {
+    font-size: 1.4rem;
+    display: block;
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-text h2 {
+    font-size: 1.8rem;
+  }
+}
