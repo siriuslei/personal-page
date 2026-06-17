@@ -1,23 +1,23 @@
-/* style.css - Premium personal portfolio styling */
+/* style.css - Premium personal portfolio styling (Light Mode) */
 
 :root {
   /* Fonts */
   --font-primary: 'Inter', sans-serif;
   --font-secondary: 'JetBrains Mono', monospace;
 
-  /* Colors */
-  --color-bg: #09090b;
-  --color-card-bg: rgba(18, 18, 21, 0.7);
-  --color-card-border: rgba(255, 255, 255, 0.07);
-  --color-text-primary: #f4f4f5;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #52525b;
+  /* Colors - Clean Light Theme */
+  --color-bg: #f8f9fa;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e4e4e7; /* Zinc-200 */
+  --color-text-primary: #18181b; /* Zinc-900 */
+  --color-text-secondary: #52525b; /* Zinc-600 */
+  --color-text-muted: #a1a1aa; /* Zinc-400 */
 
-  /* Accent Colors */
-  --color-eng-accent: #0ea5e9; /* Teal/Cyan */
-  --color-eng-accent-rgb: 14, 165, 233;
-  --color-create-accent: #a855f7; /* Violet/Purple */
-  --color-create-accent-rgb: 168, 85, 247;
+  /* Accent Colors (Royal Blue & Rose) */
+  --color-eng-accent: #2563eb; /* Royal Blue */
+  --color-eng-accent-rgb: 37, 99, 235;
+  --color-create-accent: #db2777; /* Rose */
+  --color-create-accent-rgb: 219, 39, 119;
 }
 
 /* Reset & Base Styles */
@@ -35,7 +35,7 @@ html {
 body {
   font-family: var(--font-primary);
   background-color: var(--color-bg);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(#e4e4e7 1.5px, transparent 1.5px);
   background-size: 28px 28px;
   color: var(--color-text-primary);
   min-height: 100vh;
@@ -46,8 +46,8 @@ body {
 
 /* Selection Color */
 ::selection {
-  background: rgba(14, 165, 233, 0.25);
-  color: #fff;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--color-eng-accent);
 }
 
 /* Custom Scrollbar */
@@ -58,11 +58,11 @@ body {
   background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #d4d4d8;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #a1a1aa;
 }
 
 /* Navigation Header */
@@ -76,10 +76,10 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 8%;
-  background: rgba(9, 9, 11, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   z-index: 1000;
 }
 
@@ -128,8 +128,8 @@ body {
 
 /* Glassmorphic Button */
 .btn-glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   color: var(--color-text-secondary);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -143,8 +143,8 @@ body {
 }
 
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
   color: var(--color-text-primary);
 }
 
@@ -179,6 +179,7 @@ body {
   border: 1px solid var(--color-card-border);
   border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.4s ease, 
               box-shadow 0.4s ease;
@@ -187,8 +188,8 @@ body {
 
 .bento-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(var(--color-eng-accent-rgb), 0.25);
+  box-shadow: 0 15px 30px rgba(var(--color-eng-accent-rgb), 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
 /* Mouse hover glow overlay */
@@ -199,8 +200,8 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(255, 255, 255, 0.05),
-    transparent 40%
+    rgba(var(--color-eng-accent-rgb), 0.035),
+    transparent 50%
   );
   z-index: 0;
   pointer-events: none;
@@ -265,8 +266,8 @@ body {
 }
 
 .tag {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   color: var(--color-text-secondary);
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
@@ -276,7 +277,7 @@ body {
 }
 
 .bento-card:hover .tag {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(var(--color-eng-accent-rgb), 0.2);
   color: var(--color-text-primary);
 }
 
@@ -308,6 +309,7 @@ body {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 .hero-text .zh-name {
@@ -319,7 +321,7 @@ body {
 
 .hero-text .subtitle {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-eng-accent);
   margin-bottom: 1.25rem;
   letter-spacing: -0.01em;
@@ -336,8 +338,8 @@ body {
   height: 190px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(14, 165, 233, 0.15);
-  box-shadow: 0 0 40px rgba(14, 165, 233, 0.1);
+  border: 2px solid rgba(var(--color-eng-accent-rgb), 0.12);
+  box-shadow: 0 0 30px rgba(var(--color-eng-accent-rgb), 0.05);
   transition: all 0.4s ease;
 }
 
@@ -350,7 +352,7 @@ body {
 
 .hero-card:hover .hero-image {
   border-color: var(--color-eng-accent);
-  box-shadow: 0 0 50px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 0 40px rgba(var(--color-eng-accent-rgb), 0.18);
 }
 
 .hero-card:hover .hero-image img {
@@ -367,6 +369,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
 }
 
 .creator-layout p {
@@ -377,8 +380,8 @@ body {
 .creator-layout .highlight {
   margin-top: 1.5rem;
   padding: 0.8rem 1rem;
-  border-left: 2px solid var(--color-create-accent);
-  background: rgba(168, 85, 247, 0.04);
+  border-left: 3px solid var(--color-create-accent);
+  background: rgba(219, 39, 119, 0.03);
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text-primary);
@@ -392,11 +395,11 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(219, 39, 119, 0.05);
+  border: 1px solid rgba(219, 39, 119, 0.12);
 }
 
-/* 3. VFX / Creative Card [NEW] */
+/* 3. VFX / Creative Card Specifics */
 .vfx-layout {
   position: relative;
   min-height: 280px;
@@ -417,7 +420,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(9, 9, 11, 0.95) 45%, rgba(9, 9, 11, 0.6) 80%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.98) 40%, rgba(255, 255, 255, 0.4) 80%);
   z-index: 1;
 }
 
@@ -436,6 +439,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
 }
 
 .vfx-text p {
@@ -448,6 +452,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 .skills-layout .section-desc {
@@ -463,9 +468,9 @@ body {
 }
 
 .skill-tags .tag:hover {
-  background: rgba(14, 165, 233, 0.08);
+  background: rgba(37, 99, 235, 0.05);
   border-color: var(--color-eng-accent);
-  color: var(--color-text-primary);
+  color: var(--color-eng-accent);
   transform: translateY(-1px);
 }
 
@@ -474,6 +479,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 .exp-layout .section-desc {
@@ -491,9 +497,9 @@ body {
 }
 
 .client-list li {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 0.4rem 0.9rem;
+  background: #f4f4f5; /* Zinc-100 */
+  border: 1px solid #e4e4e7; /* Zinc-200 */
+  padding: 0.45rem 1rem;
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.85rem;
@@ -502,13 +508,13 @@ body {
 }
 
 .exp-card:hover .client-list li {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: #d4d4d8;
   color: var(--color-text-primary);
 }
 
 .client-list li:hover {
-  background: rgba(14, 165, 233, 0.06) !important;
-  border-color: rgba(14, 165, 233, 0.3) !important;
+  background: rgba(37, 99, 235, 0.05) !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
   color: var(--color-eng-accent) !important;
   transform: translateY(-2px);
 }
@@ -520,7 +526,7 @@ body {
   transition: opacity 0.3s ease;
   margin-top: 0.8rem;
   padding-left: 0.25rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* 6. Social Card Specifics */
@@ -528,6 +534,7 @@ body {
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--color-text-primary);
 }
 
 .social-grid {
@@ -541,27 +548,29 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
   padding: 0.75rem 1rem;
   border-radius: 12px;
   color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01);
   transition: all 0.3s ease;
 }
 
 .social-btn:hover {
   color: var(--color-text-primary);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .social-icon {
   width: 20px;
   height: 20px;
   object-fit: contain;
-  filter: grayscale(1) brightness(0.9);
+  filter: grayscale(0.8) brightness(0.8);
   transition: filter 0.3s ease;
 }
 
@@ -570,26 +579,31 @@ body {
 }
 
 .linkedin-btn:hover {
-  background: rgba(10, 102, 194, 0.1);
-  border-color: rgba(10, 102, 194, 0.4);
+  background: rgba(10, 102, 194, 0.05);
+  border-color: rgba(10, 102, 194, 0.3);
 }
 
 .bilibili-btn:hover {
-  background: rgba(251, 114, 153, 0.1);
-  border-color: rgba(251, 114, 153, 0.4);
+  background: rgba(251, 114, 153, 0.05);
+  border-color: rgba(251, 114, 153, 0.3);
 }
 
 .youtube-btn:hover {
-  background: rgba(255, 0, 0, 0.08);
-  border-color: rgba(255, 0, 0, 0.4);
+  background: rgba(255, 0, 0, 0.04);
+  border-color: rgba(255, 0, 0, 0.3);
 }
 
 .douyin-btn:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 /* 7. Contact Card Specifics */
+.contact-card {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.02) 0%, rgba(219, 39, 119, 0.02) 100%);
+  border-color: rgba(37, 99, 235, 0.12);
+}
+
 .contact-layout {
   flex-direction: row;
   justify-content: space-between;
@@ -603,6 +617,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 .contact-text .mono-text {
@@ -619,14 +634,14 @@ body {
   text-decoration: none;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: #0284c7;
-  box-shadow: 0 6px 25px rgba(14, 165, 233, 0.4);
+  background: #1d4ed8;
+  box-shadow: 0 6px 25px rgba(37, 99, 235, 0.35);
 }
 
 /* Scroll reveal helper class */
@@ -716,7 +731,7 @@ body {
   }
   
   .vfx-bg-overlay::after {
-    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.95) 50%, rgba(9, 9, 11, 0.75) 100%) !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 45%, rgba(255, 255, 255, 0.6) 100%) !important;
   }
 
   .hero-text .title {
