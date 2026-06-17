@@ -34,7 +34,9 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
   color: var(--color-text-primary);
   min-height: 100vh;
   line-height: 1.6;
@@ -233,6 +235,20 @@ body {
   letter-spacing: 0.1em;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
+  display: inline-block;
+  border-right: 2px solid transparent;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.bento-card:hover .mono-label {
+  border-right-color: currentColor;
+  animation: blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
 }
 
 .mono-text {
@@ -497,6 +513,16 @@ body {
   transform: translateY(-2px);
 }
 
+.client-detail-text {
+  min-height: 24px;
+  font-size: 0.82rem;
+  color: var(--color-eng-accent);
+  transition: opacity 0.3s ease;
+  margin-top: 0.8rem;
+  padding-left: 0.25rem;
+  font-weight: 500;
+}
+
 /* 6. Social Card Specifics */
 .social-layout h3 {
   font-size: 1.4rem;
@@ -606,14 +632,14 @@ body {
 /* Scroll reveal helper class */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(24px) scale(0.975);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-reveal].visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* ==========================================
