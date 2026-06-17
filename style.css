@@ -784,6 +784,11 @@ body::before {
   }
 }
 
+/* Scroll Margins for Fixed Header Navigation Alignment */
+#hero, #portfolio, #skills, #contact {
+  scroll-margin-top: 100px;
+}
+
 /* ==========================================
    7. Selected Works / Portfolio Section
    ========================================== */
@@ -810,14 +815,14 @@ body::before {
 }
 
 .project-card {
-  grid-column: span 4; /* 3 columns on desktop */
+  grid-column: span 3; /* 4 columns on desktop */
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .project-preview {
-  height: 220px;
+  height: 200px;
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--color-card-border);
@@ -825,7 +830,7 @@ body::before {
   overflow: hidden;
 }
 
-/* Blueprint Project graphics */
+/* Blueprint Project Graphics */
 .project-blueprint {
   background-color: #1e3a8a;
   background-image: 
@@ -852,11 +857,11 @@ body::before {
 
 .blueprint-logo {
   font-family: var(--font-secondary);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.8);
   border: 3px solid rgba(255, 255, 255, 0.8);
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 8px;
 }
 
@@ -870,16 +875,16 @@ body::before {
 
 .edu-graphics {
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .edu-bubble {
   background: #ffffff;
   color: #db2777;
-  padding: 0.5rem 1.2rem;
+  padding: 0.4rem 1rem;
   border-radius: 20px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -893,6 +898,64 @@ body::before {
   color: #ffffff;
 }
 
+/* Steel Project Graphics */
+.project-steel {
+  background: #18181b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.steel-grid {
+  position: absolute;
+  width: 80%;
+  height: 60%;
+  border: 1px dashed rgba(249, 115, 22, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.steel-truss {
+  height: 1px;
+  background: rgba(249, 115, 22, 0.3);
+}
+
+.truss-1 {
+  transform: rotate(12deg);
+  top: 15%;
+  position: relative;
+}
+
+.truss-2 {
+  transform: rotate(-12deg);
+  top: 45%;
+  position: relative;
+}
+
+.truss-3 {
+  height: 100%;
+  width: 1px;
+  background: rgba(249, 115, 22, 0.3);
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.steel-label {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f97316;
+  border: 2px solid #f97316;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  z-index: 2;
+  background: #18181b;
+  letter-spacing: 0.1em;
+}
+
 /* Info & details */
 .project-info {
   flex: 1;
@@ -901,7 +964,7 @@ body::before {
 }
 
 .project-info h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--color-text-primary);
@@ -909,7 +972,7 @@ body::before {
 }
 
 .project-info p {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
   flex: 1;
   margin-bottom: 1.5rem;
@@ -955,10 +1018,231 @@ body::before {
   border-color: #d4d4d8;
 }
 
-/* responsive portfolio stacking */
-@media (max-width: 900px) {
+/* ==========================================
+   8. Dedicated Skills & Certifications
+   ========================================== */
+.skills-section {
+  margin-top: 6rem;
+  padding-top: 2rem;
+}
+
+.skills-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.credential-card {
+  grid-column: span 6;
+}
+
+.tools-card {
+  grid-column: span 6;
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cert-list li {
+  border-left: 2px solid var(--color-eng-accent);
+  padding-left: 1.2rem;
+  transition: border-color 0.3s;
+}
+
+.cert-list li:hover {
+  border-color: var(--color-create-accent);
+}
+
+.cert-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.cert-issuer {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.15rem;
+  font-family: var(--font-secondary);
+}
+
+.tools-grid-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tool-item {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.tool-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-create-accent);
+  background: rgba(236, 72, 153, 0.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.tool-name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.tool-desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.15rem;
+}
+
+/* ==========================================
+   9. Standalone Contact Section
+   ========================================== */
+.contact-section {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.contact-grid-standalone {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-info-card {
+  grid-column: span 5;
+}
+
+.contact-form-card {
+  grid-column: span 7;
+}
+
+.contact-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0.8rem 0 1.8rem 0;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--color-text-primary);
+  font-size: 0.92rem;
+}
+
+.details-item svg {
+  color: var(--color-eng-accent);
+  flex-shrink: 0;
+}
+
+.details-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.details-item a:hover {
+  color: var(--color-eng-accent);
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.form-group input, 
+.form-group textarea {
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-eng-accent);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.form-submit-btn {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+  padding: 0.75rem 1.8rem;
+  cursor: pointer;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
   .project-card {
+    grid-column: span 6;
+  }
+  .credential-card, 
+  .tools-card {
+    grid-column: span 12;
+  }
+  .contact-info-card, 
+  .contact-form-card {
     grid-column: span 12;
   }
 }
+
+@media (max-width: 768px) {
+  .project-card {
+    grid-column: span 12;
+  }
+  .tools-grid-showcase {
+    grid-template-columns: 1fr;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 

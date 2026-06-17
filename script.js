@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // 6. Smooth Anchor Scrolling for Navbar Links
-  document.querySelectorAll('.nav-links a').forEach(anchor => {
+  // 6. Smooth Anchor Scrolling for All Anchor Links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId.startsWith('#')) {
