@@ -783,3 +783,182 @@ body::before {
     font-size: 1.8rem;
   }
 }
+
+/* ==========================================
+   7. Selected Works / Portfolio Section
+   ========================================== */
+.portfolio-section {
+  margin-top: 5rem;
+  padding-top: 2rem;
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  grid-column: span 4; /* 3 columns on desktop */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-preview {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--color-card-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blueprint Project graphics */
+.project-blueprint {
+  background-color: #1e3a8a;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-lines {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.blueprint-logo {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+/* English Project Graphics */
+.project-english {
+  background: linear-gradient(135deg, #fbcfe8 0%, #f472b6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edu-graphics {
+  display: flex;
+  gap: 1rem;
+}
+
+.edu-bubble {
+  background: #ffffff;
+  color: #db2777;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.bubble-1 {
+  transform: rotate(-10deg);
+}
+
+.bubble-2 {
+  transform: rotate(10deg);
+  background: #db2777;
+  color: #ffffff;
+}
+
+/* Info & details */
+.project-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.project-info p {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+/* Action Links */
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-project {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-eng-accent);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-project:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-project.secondary {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  color: var(--color-text-secondary);
+  box-shadow: none;
+}
+
+.btn-project.secondary:hover {
+  background: #f4f4f5;
+  color: var(--color-text-primary);
+  border-color: #d4d4d8;
+}
+
+/* responsive portfolio stacking */
+@media (max-width: 900px) {
+  .project-card {
+    grid-column: span 12;
+  }
+}
+
