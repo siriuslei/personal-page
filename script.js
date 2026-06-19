@@ -226,7 +226,7 @@ function initBgCanvas() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(37, 99, 235, 0.25)'; // subtle engineering blue dots
+      ctx.fillStyle = 'rgba(37, 99, 235, 0.45)'; // dynamic engineering blue dots
       ctx.fill();
     }
   }
@@ -244,8 +244,8 @@ function initBgCanvas() {
     // Draw background blueprint-like grid lines for tech look
     const gridSize = 40;
     ctx.beginPath();
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.015)'; // extremely subtle grid
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.03)'; // subtle grid in blue
+    ctx.lineWidth = 0.8;
     for (let x = 0; x < width; x += gridSize) {
       ctx.moveTo(x, 0);
       ctx.lineTo(x, height);
@@ -270,7 +270,7 @@ function initBgCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < connectionDist) {
-          const alpha = (1 - dist / connectionDist) * 0.07;
+          const alpha = (1 - dist / connectionDist) * 0.18; // increased visibility
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -286,12 +286,12 @@ function initBgCanvas() {
         const dy = particles[i].y - mouse.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < mouse.radius) {
-          const alpha = (1 - dist / mouse.radius) * 0.12;
+          const alpha = (1 - dist / mouse.radius) * 0.3; // increased visibility for interaction
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.strokeStyle = `rgba(236, 72, 153, ${alpha})`; // pink accent interaction
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       }

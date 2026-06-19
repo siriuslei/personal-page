@@ -34,14 +34,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--color-bg);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(var(--color-eng-accent-rgb), 0.04) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(var(--color-create-accent-rgb), 0.04) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(var(--color-eng-accent-rgb), 0.03) 0px, transparent 50%),
-    radial-gradient(#e4e4e7 1.5px, transparent 1.5px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
-  background-attachment: fixed;
+  background: transparent;
   color: var(--color-text-primary);
   min-height: 100vh;
   line-height: 1.6;
@@ -357,8 +350,11 @@ body::before {
 }
 
 .hero-image {
-  flex: 0 0 190px;
+  width: 190px;
   height: 190px;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 190px;
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(var(--color-eng-accent-rgb), 0.12);
@@ -694,8 +690,11 @@ body::before {
   }
   
   .hero-image {
-    flex: 0 0 160px;
+    width: 160px;
     height: 160px;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 160px;
+    flex-shrink: 0;
   }
 }
 
@@ -713,7 +712,9 @@ body::before {
   .hero-image {
     width: 120px;
     height: 120px;
+    aspect-ratio: 1 / 1;
     flex: 0 0 120px;
+    flex-shrink: 0;
     align-self: center;
   }
   
@@ -842,6 +843,13 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(var(--color-eng-accent-rgb), 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(var(--color-create-accent-rgb), 0.04) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(var(--color-eng-accent-rgb), 0.03) 0px, transparent 50%),
+    radial-gradient(#e4e4e7 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px;
+  background-attachment: fixed;
 }
 
 /* Info & details */
