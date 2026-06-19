@@ -169,6 +169,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 6.5. Bilibili Video Gallery Filtering Logic
+  const filterBtns = document.querySelectorAll('.archive-filters .filter-btn');
+  const videoCards = document.querySelectorAll('.video-archive-card');
+  if (filterBtns.length > 0 && videoCards.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        const filterValue = btn.getAttribute('data-filter');
+        videoCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+
   // 7. Initialize Tech-style Dynamic Canvas Background
   initBgCanvas();
 });
